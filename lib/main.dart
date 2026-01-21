@@ -45,32 +45,41 @@ class _CounterAppState extends State<CounterApp> {
       ),
 
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CounterDisplay(count: count),
-            const SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FloatingActionButton(
-                  backgroundColor: Colors.teal,
-                  onPressed: increment,
-                  child: const Icon(Icons.add, size: 32, color: Colors.white),
-                ),
-                const SizedBox(width: 20),
-                FloatingActionButton(
-                  backgroundColor: Colors.teal,
-                  onPressed: reset,
-                  child: const Icon(
-                    Icons.refresh,
-                    size: 32,
-                    color: Colors.white,
+        child: Container(
+          height: 200,
+          width: 300,
+          decoration: BoxDecoration(
+            color: Colors.tealAccent,
+            border: Border.all(color: Colors.red, width: 2),
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CounterDisplay(count: count),
+              const SizedBox(height: 40),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FloatingActionButton(
+                    backgroundColor: Colors.teal,
+                    onPressed: increment,
+                    child: const Icon(Icons.add, size: 32, color: Colors.white),
                   ),
-                ),
-              ],
-            ),
-          ],
+                  const SizedBox(width: 20),
+                  FloatingActionButton(
+                    backgroundColor: Colors.teal,
+                    onPressed: reset,
+                    child: const Icon(
+                      Icons.refresh,
+                      size: 32,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -79,12 +88,13 @@ class _CounterAppState extends State<CounterApp> {
 
 class CounterDisplay extends StatelessWidget {
   final int count;
+
   const CounterDisplay({super.key, required this.count});
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      "Your COunt: $count",
+      "Your Count: $count",
       style: TextStyle(
         fontSize: 36,
         fontWeight: FontWeight.bold,
